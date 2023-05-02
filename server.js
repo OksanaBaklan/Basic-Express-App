@@ -10,6 +10,8 @@ const PORT = 5005;
 const __dirname = resolve();
 
 app.use(express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   // res.send(`Welcome to the page I call home`);
@@ -33,6 +35,14 @@ app.get("/about", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.send(__dirname);
+});
+
+app.post("/", (req, res) => {
+  if (req.body.username !== "" && req.body.password !== "") {
+    res.send(` “Welcome, ${req.body.username}!”`);
+  } else {
+    res.send(`pls enter your name and password`);
+  }
 });
 
 app.listen(PORT, () => {
