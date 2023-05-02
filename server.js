@@ -41,7 +41,7 @@ app.post("/", (req, res) => {
   if (req.body.username !== "" && req.body.password !== "") {
     res.send(` “Welcome, ${req.body.username}!”`);
   } else {
-    res.send(`pls enter your name and password`);
+    res.send(`Login failed, pls enter your name and password`);
   }
 });
 
