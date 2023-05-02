@@ -38,7 +38,7 @@ app.get("/contact", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  if (req.body.username !== "" && req.body.password !== "") {
+  if (req.body.username.trim() !== "" && req.body.password.trim() !== "") {
     res.send(` “Welcome, ${req.body.username}!”`);
   } else {
     res.send(`Login failed, pls enter your name and password`);
